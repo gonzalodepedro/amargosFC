@@ -4,7 +4,7 @@
 @endsection
 @section('header')
     <div class="page-header">
-        <h1><i class="glyphicon glyphicon-edit"></i> Jugadors / Edit #{{$jugador->id}}</h1>
+        <h1><i class="glyphicon glyphicon-edit"></i> Jugador / Editar #{{$jugador->id}}</h1>
     </div>
 @endsection
 
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group @if($errors->has('fechanacimiento')) has-error @endif">
                        <label for="fechanacimiento-field">FechaNacimiento</label>
-                    <input type="text" id="fechanacimiento-field" name="fechanacimiento" class="form-control" value="{{ is_null(old("fechanacimiento")) ? $jugador->fechanacimiento : old("fechanacimiento") }}"/>
+                    <input type="date" id="fechanacimiento-field" name="fechanacimiento" class="form-control" value="{{ is_null(old("fechanacimiento")) ? $jugador->fechanacimiento : old("fechanacimiento") }}"/>
                        @if($errors->has("fechanacimiento"))
                         <span class="help-block">{{ $errors->first("fechanacimiento") }}</span>
                        @endif

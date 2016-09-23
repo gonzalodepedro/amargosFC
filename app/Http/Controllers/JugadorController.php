@@ -5,8 +5,19 @@ use App\Http\Controllers\Controller;
 
 use App\Jugador;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator as Paginator;
 
 class JugadorController extends Controller {
+
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 	/**
 	 * Display a listing of the resource.
@@ -34,8 +45,8 @@ class JugadorController extends Controller {
 		Paginator::currentPageResolver(function() use ($currentPage) {
 		    return $currentPage;
 		});
-		$jugadores = $q->orderBy('id','desc')->paginate($totalPerPage);
-		$count = $jugadores->count();
+		$jugadors = $q->orderBy('id','desc')->paginate($totalPerPage);
+		$count = $jugadors->count();
 	
 		return view('jugadors.index', compact('jugadors','count','current'));
 	}
@@ -63,7 +74,7 @@ class JugadorController extends Controller {
 		$jugador->nombre = $request->input("nombre");
         $jugador->apellido = $request->input("apellido");
         $jugador->apodo = $request->input("apodo");
-        $jugador->fechaNacimiento = $request->input("fechaNacimiento");
+        $jugador->fechaNacimiento = $request->input("fechanacimiento");
 
 		$jugador->save();
 
@@ -110,7 +121,7 @@ class JugadorController extends Controller {
 		$jugador->nombre = $request->input("nombre");
         $jugador->apellido = $request->input("apellido");
         $jugador->apodo = $request->input("apodo");
-        $jugador->fechaNacimiento = $request->input("fechaNacimiento");
+        $jugador->fechaNacimiento = $request->input("fechanacimiento");
 
 		$jugador->save();
 

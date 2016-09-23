@@ -1,7 +1,7 @@
 @extends('layout')
 @section('header')
 <div class="page-header">
-        <h1>Jugadors / Show #{{$jugador->id}}</h1>
+        <h1>Jugador / Show #{{$jugador->id}}</h1>
         <form action="{{ route('jugadors.destroy', $jugador->id) }}" method="POST" style="display: inline;" onsubmit="if(confirm('Delete? Are you sure?')) { return true } else {return false };">
             <input type="hidden" name="_method" value="DELETE">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -36,7 +36,7 @@
                 </div>
                     <div class="form-group">
                      <label for="fechanacimiento">FECHANACIMIENTO</label>
-                     <p class="form-control-static">{{$jugador->fechanacimiento}}</p>
+                     <p class="form-control-static">{{$jugador->fechaNacimiento}}</p>
                 </div>
             </form>
 

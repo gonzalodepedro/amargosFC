@@ -3,7 +3,7 @@
 @section('header')
     <div class="page-header clearfix">
         <h1>
-            <i class="glyphicon glyphicon-align-justify"></i> Jugadors
+            <i class="glyphicon glyphicon-align-justify"></i> Jugadores
             <a class="btn btn-success pull-right" href="{{ route('jugadors.create') }}"><i class="glyphicon glyphicon-plus"></i> Create</a>
         </h1>
 
@@ -33,7 +33,7 @@
                                 <td>{{$jugador->nombre}}</td>
                     <td>{{$jugador->apellido}}</td>
                     <td>{{$jugador->apodo}}</td>
-                    <td>{{$jugador->fechanacimiento}}</td>
+                    <td>{{$jugador->fechaNacimiento}}</td>
                                 <td class="text-right">
                                     <a class="btn btn-xs btn-primary" href="{{ route('jugadors.show', $jugador->id) }}"><i class="glyphicon glyphicon-eye-open"></i> View</a>
                                     <a class="btn btn-xs btn-warning" href="{{ route('jugadors.edit', $jugador->id) }}"><i class="glyphicon glyphicon-edit"></i> Edit</a>

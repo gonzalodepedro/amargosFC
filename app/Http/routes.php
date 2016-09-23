@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
-Route::resource("/tweets","TweetController"); 
+Route::resource("jugadores","JugadorController");
 Route::resource("jugadors","JugadorController");
 
 Route::get('social/auth/redirect/{provider}', 'Auth\AuthController@redirectToProvider');

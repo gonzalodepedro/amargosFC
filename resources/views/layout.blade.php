@@ -45,9 +45,9 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="tweets">Ranking</a></li>
-                    <li><a href="#about">Jugadores</a></li>
-                    <li><a href="#contact">Equipos</a></li>
+                    <li><a href="#">Ranking</a></li>
+                    <li class="active"><a href="#jugadores">Jugadores</a></li>
+                    <li><a href="#">Equipos</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
