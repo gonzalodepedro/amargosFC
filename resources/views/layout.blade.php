@@ -44,11 +44,13 @@
                 <a class="navbar-brand" href="#">Indice de amargura</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
+                @if (!Auth::guest())
                 <ul class="nav navbar-nav">
-                    <li><a href="#">Ranking</a></li>
-                    <li class="active"><a href="#jugadores">Jugadores</a></li>
-                    <li><a href="#">Equipos</a></li>
+                    <li><a href="{{ url('/') }}">Ranking</a></li>
+                    <li class="active"><a href="{{ url('/jugadores') }}">Jugadores</a></li>
+                    <li><a href="{{ url('/') }}">Equipos</a></li>
                 </ul>
+                @endif
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
