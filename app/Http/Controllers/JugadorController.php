@@ -71,8 +71,8 @@ class JugadorController extends Controller {
 	public function store(Request $request)
 	{
 	   $this->validate($request, [
-	    'nombre' => 'required|alpha|max:50',
-            'apellido' => 'required|alpha_num|max:50',
+	    'nombre' => 'required|regex:/^[(a-zA-Z\s)]+$/u|max:50',
+            'apellido' => 'required|regex:/^[(a-zA-Z0-9\s)]+$/u|max:50',
             'apodo' => 'required|alpha|max:200',
             'fechanacimiento' => 'required|date|before:today'
 	   ]);
@@ -125,8 +125,8 @@ class JugadorController extends Controller {
 	public function update(Request $request, $id)
 	{
 	   $this->validate($request, [
-	    'nombre' => 'required|alpha|max:50',
-            'apellido' => 'required|alpha|max:50',
+	    'nombre' => 'required|regex:/^[(a-zA-Z\s)]+$/u|max:50',
+            'apellido' => 'required|regex:/^[(a-zA-Z\s)]+$/u|max:50',
             'apodo' => 'required|regex:/^[(a-zA-Z\s)]+$/u|max:20',
             'fechanacimiento' => 'required|date'
 	   ]);
