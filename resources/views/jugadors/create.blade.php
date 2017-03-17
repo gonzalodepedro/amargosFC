@@ -45,7 +45,7 @@
                        @endif
                     </div>
                     <div class="form-group @if($errors->has('fechanacimiento')) has-error @endif row">
-                       <label for="fechanacimiento-field" class="col-sm-2">FechaNacimiento</label>
+                       <label for="fechanacimiento-field" class="col-sm-2">Fecha de Nacimiento</label>
 		<div class="col-sm-10">
                     <input type="date" id="fechanacimiento-field" name="fechanacimiento" class="form-control" value="{{ old("fechanacimiento") }}"/>
 		</div>
