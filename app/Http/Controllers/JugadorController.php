@@ -27,7 +27,7 @@ class JugadorController extends Controller {
 	public function index(Request $request)
 	{
 		$currentPage = 1;
-		$totalPerPage = 1;
+		$totalPerPage = 10;
 
 		// force current page to 5
 		
@@ -45,7 +45,7 @@ class JugadorController extends Controller {
 		Paginator::currentPageResolver(function() use ($currentPage) {
 		    return $currentPage;
 		});
-		$jugadors = $q->orderBy('id','desc')->paginate($totalPerPage);
+		$jugadors = $q->orderBy('id','asc')->paginate($totalPerPage);
 		$count = $jugadors->count();
 	
 		return view('jugadors.index', compact('jugadors','count','current'));
@@ -78,7 +78,7 @@ class JugadorController extends Controller {
 
 		$jugador->save();
 
-		return redirect()->route('jugadors.index')->with('message', 'Item created successfully.');
+		return redirect()->route('jugadores.index')->with('message', 'Item created successfully.');
 	}
 
 	/**
@@ -125,7 +125,7 @@ class JugadorController extends Controller {
 
 		$jugador->save();
 
-		return redirect()->route('jugadors.index')->with('message', 'Item updated successfully.');
+		return redirect()->route('jugadores.index')->with('message', 'Item updated successfully.');
 	}
 
 	/**
@@ -139,7 +139,7 @@ class JugadorController extends Controller {
 		$jugador = Jugador::findOrFail($id);
 		$jugador->delete();
 
-		return redirect()->route('jugadors.index')->with('message', 'Item deleted successfully.');
+		return redirect()->route('jugadores.index')->with('message', 'Item deleted successfully.');
 	}
 
 }
