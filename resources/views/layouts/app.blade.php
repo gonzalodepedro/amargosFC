@@ -46,7 +46,12 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-               
+                @if (!Auth::guest())
+                <ul class="nav navbar-nav">
+                    <li class="{{Request::path() == 'jugadores' ? 'active' : '' }}"><a href="{{ url('/jugadores') }}">Jugadores</a></li>
+                </ul>
+                @endif
+ 
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -70,7 +75,10 @@
         </div>
     </nav>
 
-    @yield('content')
+    <div class="container">
+        @yield('header')
+        @yield('content')
+    </div><!-- /.container -->
 
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
