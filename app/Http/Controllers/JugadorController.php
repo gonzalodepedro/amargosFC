@@ -70,9 +70,9 @@ class JugadorController extends Controller {
 	public function store(Request $request)
 	{
 	   $this->validate($request, [
-	    'nombre' => 'required|alpha|max:5',
-            'apellido' => 'required|alpha|max:255',
-            'apodo' => 'required|alpha|max:255',
+	    'nombre' => 'required|alpha|max:50',
+            'apellido' => 'required|alpha|max:50',
+            'apodo' => 'required|alpha|max:20',
             'fechanacimiento' => 'required|date|'
 	   ]);
 		$jugador = new Jugador();
@@ -123,9 +123,9 @@ class JugadorController extends Controller {
 	public function update(Request $request, $id)
 	{
 	   $this->validate($request, [
-	    'nombre' => 'required|alpha|max:5',
-            'apellido' => 'required|alpha|max:255',
-            'apodo' => 'required|alpha|max:255',
+	    'nombre' => 'required|alpha|max:50',
+            'apellido' => 'required|alpha|max:50',
+            'apodo' => 'required|alpha|max:20',
             'fechanacimiento' => 'required|date|'
 	   ]);
 		$jugador = Jugador::findOrFail($id);
