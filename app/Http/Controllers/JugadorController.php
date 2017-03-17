@@ -73,7 +73,7 @@ class JugadorController extends Controller {
 	    'nombre' => 'required|alpha|max:50',
             'apellido' => 'required|alpha|max:50',
             'apodo' => 'required|alpha|max:20',
-            'fechanacimiento' => 'required|date|'
+            'fechanacimiento' => 'required|date|before:today'
 	   ]);
 		$jugador = new Jugador();
 
@@ -126,7 +126,7 @@ class JugadorController extends Controller {
 	    'nombre' => 'required|alpha|max:50',
             'apellido' => 'required|alpha|max:50',
             'apodo' => 'required|alpha|max:20',
-            'fechanacimiento' => 'required|date|'
+            'fechanacimiento' => 'required|date|before:today'
 	   ]);
 		$jugador = Jugador::findOrFail($id);
 
