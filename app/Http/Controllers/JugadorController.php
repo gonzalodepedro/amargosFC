@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Validator;
 use App\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator as Paginator;
@@ -69,6 +69,12 @@ class JugadorController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+	   $this->validate($request, [
+	    'nombre' => 'required|alpha|max:5',
+            'apellido' => 'required|alpha|max:255',
+            'apodo' => 'required|alpha|max:255',
+            'fechanacimiento' => 'required|date|'
+	   ]);
 		$jugador = new Jugador();
 
 		$jugador->nombre = $request->input("nombre");
@@ -116,6 +122,12 @@ class JugadorController extends Controller {
 	 */
 	public function update(Request $request, $id)
 	{
+	   $this->validate($request, [
+	    'nombre' => 'required|alpha|max:5',
+            'apellido' => 'required|alpha|max:255',
+            'apodo' => 'required|alpha|max:255',
+            'fechanacimiento' => 'required|date|'
+	   ]);
 		$jugador = Jugador::findOrFail($id);
 
 		$jugador->nombre = $request->input("nombre");

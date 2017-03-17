@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group @if($errors->has('fechanacimiento')) has-error @endif">
                        <label for="fechanacimiento-field">FechaNacimiento</label>
-                    <input type="date" id="fechanacimiento-field" name="fechanacimiento" class="form-control" value="{{ is_null(old("fechanacimiento")) ? $jugador->fechanacimiento : old("fechanacimiento") }}"/>
+                    <input type="date" id="fechanacimiento-field" name="fechanacimiento" class="form-control" value="{{ is_null(old("fechanacimiento")) ? $jugador->fechaNacimiento : old("fechanacimiento") }}"/>
                        @if($errors->has("fechanacimiento"))
                         <span class="help-block">{{ $errors->first("fechanacimiento") }}</span>
                        @endif
