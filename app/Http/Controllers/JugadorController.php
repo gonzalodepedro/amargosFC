@@ -6,6 +6,7 @@ use Validator;
 use App\Jugador;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator as Paginator;
+use DateTime;
 
 class JugadorController extends Controller {
 
@@ -71,8 +72,8 @@ class JugadorController extends Controller {
 	{
 	   $this->validate($request, [
 	    'nombre' => 'required|alpha|max:50',
-            'apellido' => 'required|alpha|max:50',
-            'apodo' => 'required|alpha|max:20',
+            'apellido' => 'required|alpha_num|max:50',
+            'apodo' => 'required|alpha|max:200',
             'fechanacimiento' => 'required|date|before:today'
 	   ]);
 		$jugador = new Jugador();
@@ -80,7 +81,8 @@ class JugadorController extends Controller {
 		$jugador->nombre = $request->input("nombre");
         $jugador->apellido = $request->input("apellido");
         $jugador->apodo = $request->input("apodo");
-        $jugador->fechaNacimiento = $request->input("fechanacimiento");
+//        $jugador->fechaNacimiento = $request->input("fechanacimiento");
+        $jugador->fechaNacimiento = new DateTime();
 
 		$jugador->save();
 
@@ -125,13 +127,13 @@ class JugadorController extends Controller {
 	   $this->validate($request, [
 	    'nombre' => 'required|alpha|max:50',
             'apellido' => 'required|alpha|max:50',
-            'apodo' => 'required|alpha|max:20',
-            'fechanacimiento' => 'required|date|before:today'
+            'apodo' => 'required|regex:/^[(a-zA-Z\s)]+$/u|max:20',
+            'fechanacimiento' => 'required|date'
 	   ]);
 		$jugador = Jugador::findOrFail($id);
 
 		$jugador->nombre = $request->input("nombre");
-        $jugador->apellido = $request->input("apellido");
+//        $jugador->apellido = $request->input("apellido");
         $jugador->apodo = $request->input("apodo");
         $jugador->fechaNacimiento = $request->input("fechanacimiento");
 
